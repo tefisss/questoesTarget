@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int pertenceFibonacci(int num){
+	
+	if(num == 0 || num == 1) return 1; // 0 e 1 pertencem
+	
+	int fib1 = 0, fib2 = 1, nextFib = fib1 +fib2;
+	
+	while (nextFib <= num){
+		if(nextFib == num) return 1; // pertence
+	
+	fib1 = fib2;
+	fib2 = nextFib;
+	nextFib = fib1 + fib2;
+	}
+	
+	return 0; //nao pertence
+	
+}
+
+int main(void){
+	int num;
+	
+	printf("Digite um numero para verificacao: ");
+	scanf("%i", &num);
+	
+	if(pertenceFibonacci(num)){
+		printf("%i pertence a sequencia de Fibonacci\n", num);
+	}else{
+		printf("%i nao pertence a sequencia de Fibonacci\n", num);
+	}
+	
+	return 0;
+}
